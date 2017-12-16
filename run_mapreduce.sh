@@ -1,3 +1,6 @@
+file="animals/dogs.txt"
+
+printf "Calculating TF-IDF for $file\n"
 printf "Running TF mapreduce...\n"
 printf "Removing old results...\n"
 rm tf_output.txt -f
@@ -12,8 +15,8 @@ hadoop fs -put texts/* /temp/input
 printf "Running mapreduce on Hadoop...\n"
 hadoop jar \
      /usr/lib/hadoop-0.20-mapreduce/contrib/streaming/hadoop-streaming-2.0.0-mr1-cdh4.1.1.jar \
-     -mapper tf_mapper.py \
-     -reducer tf_reducer.py \
+     -mapper "tf_mapper.py $file" \
+     -reducer "tf_reducer.py $file" \
      -file tf_mapper.py \
      -file tf_reducer.py \
      -file utils.py \
@@ -24,4 +27,22 @@ printf "Getting results back...\n"
 hadoop fs -get "/temp/output/part-00000"
 mv "part-00000" tf_output.txt
 
-printf "Results are written to file tf_output.txt\nDone!\n"
+printf "Results are written to file tf_output.txt\nTF Done! Computing DF...\n"
+printf "Copying from HDFS /temp/output/part-* to /temp/dfinput...\n"
+hadoop fs -mkdir /temp/dfinput
+hadoop fs -cp /temp/output/part-* /temp/dfinput
+
+printf "Running mapreduce on Hadoop...\n"
+hadoop jar \
+     /usr/lib/hadoop-0.20-mapreduce/contrib/streaming/hadoop-streaming-2.0.0-mr1-cdh4.1.1.jar \
+     -mapper "df_mapper.py $file" \
+     -reducer "df_reducer.py $file" \
+     -file df_mapper.py \
+     -file df_reducer.py \
+     -file utils.py \
+     -input /temp/dfinput/* \
+     -output /temp/dfoutput
+
+printf "Getting results...\n"
+hadoop fs -get "/temp/dfoutput/part-00000"
+mv "part-00000" tf_df_output.txt
