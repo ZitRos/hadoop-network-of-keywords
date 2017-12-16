@@ -19,7 +19,11 @@ Running Keywords Builder
 TF-IDF metrics are computed using Hadoop. Further processing and graph building
 are done after TF-IDF values are computed.
 
-By running the `run_mapreduce.sh` script, you should get similar output to this:
+By running the `run_mapreduce.sh` script, you should get similar output to the
+following. Note that you can pass a particular file name to analyze to the shell
+script, located at `texts` directory: `run_mapreduce.sh animals/dogs.txt`.
+
+Sample output:
 
 ```txt
 [training@localhost hadoop-network-of-keywords]$ ./run_mapreduce.sh 
