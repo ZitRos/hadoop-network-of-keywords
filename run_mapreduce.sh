@@ -6,9 +6,11 @@ else
 fi
 
 if [ ! -f "texts/$file" ]; then
-    echo "File texts/$file does not exists!"
-    exit 1
+	echo "File texts/$file does not exists!"
+	exit 1
 fi
+
+echo "$file" > file_name.txt
 
 printf "Calculating TF-IDF for $file\n"
 printf "Running TF mapreduce...\n"

@@ -1,4 +1,5 @@
 import re
+import math
 
 
 regex = re.compile('[^.,;():?!"\'\s]+(?:\'[sd])?')
@@ -31,3 +32,7 @@ def normalize_words(words):
 
 def get_normalized_words(line):
 	return normalize_words(regex.findall(line))
+
+def tf_idf(tf, df, n):
+	return tf * math.log(n / df)
+
