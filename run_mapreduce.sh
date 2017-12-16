@@ -1,4 +1,14 @@
-file="animals/dogs.txt"
+if [ -z ${1+x} ]
+then
+	file="animals/dogs.txt"
+else
+	file="$1"
+fi
+
+if [ ! -f "texts/$file" ]; then
+    echo "File texts/$file does not exists!"
+    exit 1
+fi
 
 printf "Calculating TF-IDF for $file\n"
 printf "Running TF mapreduce...\n"
