@@ -5,6 +5,8 @@ Keywords network builder based on TF-IDF with the use of Hadoop platform.
 Preview
 -------
 
+A keywords graph built from [this article](http://news.bbc.co.uk/2/hi/technology/4276125.stm).
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/ZitRos/hadoop-network-of-keywords/master/result-graph.png">
 </p>
