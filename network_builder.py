@@ -24,7 +24,7 @@ with open('tf_df_output.txt') as f:
 with open('files_count.txt') as f:
 	documents = int(f.read())
 with open('file_name.txt') as f:
-	with open('dataset/news/' + f.read().strip()) as f2:
+	with open(f.read().strip()) as f2:
 		text = utils.get_normalized_words(f2.read())
 tf_df_word = [x.strip().split() for x in content]
 

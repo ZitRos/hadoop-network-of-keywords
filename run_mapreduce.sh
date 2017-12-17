@@ -10,7 +10,7 @@ if [ ! -f "dataset/news/$file" ]; then
 	exit 1
 fi
 
-echo "$file" > file_name.txt
+echo "dataset/news/$file" > file_name.txt
 
 printf "Calculating TF-IDF for $file\n"
 printf "Running TF mapreduce...\n"
