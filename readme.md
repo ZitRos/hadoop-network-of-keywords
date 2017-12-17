@@ -2,6 +2,13 @@
 
 Keywords network builder based on TF-IDF with the use of Hadoop platform.
 
+Preview
+-------
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ZitRos/hadoop-network-of-keywords/master/result-graph.png">
+</p>
+
 Set Up
 ------
 
@@ -12,7 +19,8 @@ but can be easily ported to any other Hadoop stacks.
 2. Log in to VM using `training/training` login/password.
 3. Clone this repository using Git with its submodules: `git clone --recursive https://github.com/ZitRos/hadoop-network-of-keywords`.
 4. `cd hadoop-network-of-keywords` and run the shell script `run_mapreduce.sh`.
-5. To build the graph `result.csv`, run `network_builder.py` after running 4.
+5. To generate the graph to `result.csv`, run `network_builder.py` after running 4.
+6. Build a visual graph from `result.csv` file, for example, using [Gephi](https://gephi.org).
 
 Running Keywords Builder
 ------------------------
