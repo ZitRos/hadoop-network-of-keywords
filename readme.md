@@ -10,8 +10,9 @@ but can be easily ported to any other Hadoop stacks.
 
 1. Download [this VM](http://content.udacity-data.com/courses/ud617/Cloudera-Udacity-Training-VM-4.1.1.c.zip) used by Cloudera.
 2. Log in to VM using `training/training` login/password.
-3. Clone this repository using Git.
-4. Run the shell script `run_mapreduce.sh`.
+3. Clone this repository using Git with its submodules: `git clone --recursive https://github.com/ZitRos/hadoop-network-of-keywords`.
+4. `cd hadoop-network-of-keywords` and run the shell script `run_mapreduce.sh`.
+5. To build the graph `result.csv`, run `network_builder.py` after running 4.
 
 Running Keywords Builder
 ------------------------
@@ -46,134 +47,11 @@ packageJobJar: [tf_mapper.py, tf_reducer.py, utils.py, /tmp/hadoop-training/hado
 17/12/16 21:15:58 INFO streaming.StreamJob: Tracking URL: http://0.0.0.0:50030/jobdetails.jsp?jobid=job_201712162108_0001
 17/12/16 21:15:59 INFO streaming.StreamJob:  map 0%  reduce 0%
 17/12/16 21:16:23 INFO streaming.StreamJob:  map 1%  reduce 0%
-17/12/16 21:16:57 INFO streaming.StreamJob:  map 2%  reduce 0%
-17/12/16 21:17:34 INFO streaming.StreamJob:  map 3%  reduce 0%
-17/12/16 21:18:08 INFO streaming.StreamJob:  map 4%  reduce 0%
+...
 17/12/16 21:18:45 INFO streaming.StreamJob:  map 5%  reduce 0%
 17/12/16 21:19:12 INFO streaming.StreamJob:  map 5%  reduce 2%
 17/12/16 21:19:22 INFO streaming.StreamJob:  map 6%  reduce 2%
-17/12/16 21:20:01 INFO streaming.StreamJob:  map 7%  reduce 2%
-17/12/16 21:20:42 INFO streaming.StreamJob:  map 8%  reduce 2%
-17/12/16 21:20:43 INFO streaming.StreamJob:  map 8%  reduce 3%
-17/12/16 21:21:22 INFO streaming.StreamJob:  map 9%  reduce 3%
-17/12/16 21:21:57 INFO streaming.StreamJob:  map 10%  reduce 3%
-17/12/16 21:22:31 INFO streaming.StreamJob:  map 11%  reduce 3%
-17/12/16 21:22:32 INFO streaming.StreamJob:  map 11%  reduce 4%
-17/12/16 21:23:08 INFO streaming.StreamJob:  map 12%  reduce 4%
-17/12/16 21:23:42 INFO streaming.StreamJob:  map 13%  reduce 4%
-17/12/16 21:24:19 INFO streaming.StreamJob:  map 14%  reduce 4%
-17/12/16 21:24:24 INFO streaming.StreamJob:  map 14%  reduce 5%
-17/12/16 21:24:55 INFO streaming.StreamJob:  map 15%  reduce 5%
-17/12/16 21:25:34 INFO streaming.StreamJob:  map 16%  reduce 5%
-17/12/16 21:26:08 INFO streaming.StreamJob:  map 17%  reduce 5%
-17/12/16 21:26:09 INFO streaming.StreamJob:  map 17%  reduce 6%
-17/12/16 21:26:46 INFO streaming.StreamJob:  map 18%  reduce 6%
-17/12/16 21:27:21 INFO streaming.StreamJob:  map 19%  reduce 6%
-17/12/16 21:27:57 INFO streaming.StreamJob:  map 20%  reduce 6%
-17/12/16 21:27:59 INFO streaming.StreamJob:  map 20%  reduce 7%
-17/12/16 21:28:32 INFO streaming.StreamJob:  map 21%  reduce 7%
-17/12/16 21:29:08 INFO streaming.StreamJob:  map 22%  reduce 7%
-17/12/16 21:29:42 INFO streaming.StreamJob:  map 23%  reduce 7%
-17/12/16 21:29:45 INFO streaming.StreamJob:  map 23%  reduce 8%
-17/12/16 21:30:19 INFO streaming.StreamJob:  map 24%  reduce 8%
-17/12/16 21:30:53 INFO streaming.StreamJob:  map 25%  reduce 8%
-17/12/16 21:31:30 INFO streaming.StreamJob:  map 26%  reduce 8%
-17/12/16 21:31:33 INFO streaming.StreamJob:  map 26%  reduce 9%
-17/12/16 21:32:04 INFO streaming.StreamJob:  map 27%  reduce 9%
-17/12/16 21:32:41 INFO streaming.StreamJob:  map 28%  reduce 9%
-17/12/16 21:33:15 INFO streaming.StreamJob:  map 29%  reduce 9%
-17/12/16 21:33:22 INFO streaming.StreamJob:  map 29%  reduce 10%
-17/12/16 21:33:52 INFO streaming.StreamJob:  map 30%  reduce 10%
-17/12/16 21:34:27 INFO streaming.StreamJob:  map 31%  reduce 10%
-17/12/16 21:35:01 INFO streaming.StreamJob:  map 32%  reduce 11%
-17/12/16 21:35:38 INFO streaming.StreamJob:  map 33%  reduce 11%
-17/12/16 21:36:12 INFO streaming.StreamJob:  map 34%  reduce 11%
-17/12/16 21:36:48 INFO streaming.StreamJob:  map 35%  reduce 11%
-17/12/16 21:36:50 INFO streaming.StreamJob:  map 35%  reduce 12%
-17/12/16 21:37:23 INFO streaming.StreamJob:  map 36%  reduce 12%
-17/12/16 21:37:59 INFO streaming.StreamJob:  map 37%  reduce 12%
-17/12/16 21:38:34 INFO streaming.StreamJob:  map 38%  reduce 12%
-17/12/16 21:38:36 INFO streaming.StreamJob:  map 38%  reduce 13%
-17/12/16 21:39:08 INFO streaming.StreamJob:  map 39%  reduce 13%
-17/12/16 21:39:45 INFO streaming.StreamJob:  map 40%  reduce 13%
-17/12/16 21:40:19 INFO streaming.StreamJob:  map 41%  reduce 13%
-17/12/16 21:40:23 INFO streaming.StreamJob:  map 41%  reduce 14%
-17/12/16 21:40:56 INFO streaming.StreamJob:  map 42%  reduce 14%
-17/12/16 21:41:29 INFO streaming.StreamJob:  map 43%  reduce 14%
-17/12/16 21:42:06 INFO streaming.StreamJob:  map 44%  reduce 14%
-17/12/16 21:42:08 INFO streaming.StreamJob:  map 44%  reduce 15%
-17/12/16 21:42:44 INFO streaming.StreamJob:  map 45%  reduce 15%
-17/12/16 21:43:20 INFO streaming.StreamJob:  map 46%  reduce 15%
-17/12/16 21:43:53 INFO streaming.StreamJob:  map 47%  reduce 15%
-17/12/16 21:43:57 INFO streaming.StreamJob:  map 47%  reduce 16%
-17/12/16 21:44:30 INFO streaming.StreamJob:  map 48%  reduce 16%
-17/12/16 21:45:16 INFO streaming.StreamJob:  map 49%  reduce 16%
-17/12/16 21:45:51 INFO streaming.StreamJob:  map 50%  reduce 16%
-17/12/16 21:45:54 INFO streaming.StreamJob:  map 50%  reduce 17%
-17/12/16 21:46:25 INFO streaming.StreamJob:  map 51%  reduce 17%
-17/12/16 21:46:59 INFO streaming.StreamJob:  map 52%  reduce 17%
-17/12/16 21:47:36 INFO streaming.StreamJob:  map 53%  reduce 17%
-17/12/16 21:47:39 INFO streaming.StreamJob:  map 53%  reduce 18%
-17/12/16 21:48:11 INFO streaming.StreamJob:  map 54%  reduce 18%
-17/12/16 21:48:47 INFO streaming.StreamJob:  map 55%  reduce 18%
-17/12/16 21:49:21 INFO streaming.StreamJob:  map 56%  reduce 18%
-17/12/16 21:49:25 INFO streaming.StreamJob:  map 56%  reduce 19%
-17/12/16 21:49:57 INFO streaming.StreamJob:  map 57%  reduce 19%
-17/12/16 21:50:32 INFO streaming.StreamJob:  map 58%  reduce 19%
-17/12/16 21:51:08 INFO streaming.StreamJob:  map 59%  reduce 19%
-17/12/16 21:51:11 INFO streaming.StreamJob:  map 59%  reduce 20%
-17/12/16 21:51:43 INFO streaming.StreamJob:  map 60%  reduce 20%
-17/12/16 21:52:18 INFO streaming.StreamJob:  map 61%  reduce 20%
-17/12/16 21:52:55 INFO streaming.StreamJob:  map 62%  reduce 20%
-17/12/16 21:52:57 INFO streaming.StreamJob:  map 62%  reduce 21%
-17/12/16 21:53:29 INFO streaming.StreamJob:  map 63%  reduce 21%
-17/12/16 21:54:06 INFO streaming.StreamJob:  map 64%  reduce 21%
-17/12/16 21:54:40 INFO streaming.StreamJob:  map 65%  reduce 21%
-17/12/16 21:54:43 INFO streaming.StreamJob:  map 65%  reduce 22%
-17/12/16 21:55:17 INFO streaming.StreamJob:  map 66%  reduce 22%
-17/12/16 21:55:51 INFO streaming.StreamJob:  map 67%  reduce 22%
-17/12/16 21:56:28 INFO streaming.StreamJob:  map 68%  reduce 22%
-17/12/16 21:56:29 INFO streaming.StreamJob:  map 68%  reduce 23%
-17/12/16 21:57:01 INFO streaming.StreamJob:  map 69%  reduce 23%
-17/12/16 21:57:38 INFO streaming.StreamJob:  map 70%  reduce 23%
-17/12/16 21:58:12 INFO streaming.StreamJob:  map 71%  reduce 23%
-17/12/16 21:58:14 INFO streaming.StreamJob:  map 71%  reduce 24%
-17/12/16 21:58:46 INFO streaming.StreamJob:  map 72%  reduce 24%
-17/12/16 21:59:24 INFO streaming.StreamJob:  map 73%  reduce 24%
-17/12/16 21:59:58 INFO streaming.StreamJob:  map 74%  reduce 24%
-17/12/16 22:00:00 INFO streaming.StreamJob:  map 74%  reduce 25%
-17/12/16 22:00:35 INFO streaming.StreamJob:  map 75%  reduce 25%
-17/12/16 22:01:08 INFO streaming.StreamJob:  map 76%  reduce 25%
-17/12/16 22:01:45 INFO streaming.StreamJob:  map 77%  reduce 25%
-17/12/16 22:01:49 INFO streaming.StreamJob:  map 77%  reduce 26%
-17/12/16 22:02:19 INFO streaming.StreamJob:  map 78%  reduce 26%
-17/12/16 22:02:55 INFO streaming.StreamJob:  map 79%  reduce 26%
-17/12/16 22:03:30 INFO streaming.StreamJob:  map 80%  reduce 26%
-17/12/16 22:03:31 INFO streaming.StreamJob:  map 80%  reduce 27%
-17/12/16 22:04:04 INFO streaming.StreamJob:  map 81%  reduce 27%
-17/12/16 22:04:40 INFO streaming.StreamJob:  map 82%  reduce 27%
-17/12/16 22:05:15 INFO streaming.StreamJob:  map 83%  reduce 27%
-17/12/16 22:05:18 INFO streaming.StreamJob:  map 83%  reduce 28%
-17/12/16 22:05:51 INFO streaming.StreamJob:  map 84%  reduce 28%
-17/12/16 22:06:25 INFO streaming.StreamJob:  map 85%  reduce 28%
-17/12/16 22:07:01 INFO streaming.StreamJob:  map 86%  reduce 28%
-17/12/16 22:07:03 INFO streaming.StreamJob:  map 86%  reduce 29%
-17/12/16 22:07:35 INFO streaming.StreamJob:  map 87%  reduce 29%
-17/12/16 22:08:11 INFO streaming.StreamJob:  map 88%  reduce 29%
-17/12/16 22:08:45 INFO streaming.StreamJob:  map 89%  reduce 29%
-17/12/16 22:08:49 INFO streaming.StreamJob:  map 89%  reduce 30%
-17/12/16 22:09:22 INFO streaming.StreamJob:  map 90%  reduce 30%
-17/12/16 22:09:55 INFO streaming.StreamJob:  map 91%  reduce 30%
-17/12/16 22:10:29 INFO streaming.StreamJob:  map 92%  reduce 30%
-17/12/16 22:10:32 INFO streaming.StreamJob:  map 92%  reduce 31%
-17/12/16 22:11:05 INFO streaming.StreamJob:  map 93%  reduce 31%
-17/12/16 22:11:39 INFO streaming.StreamJob:  map 94%  reduce 31%
-17/12/16 22:12:18 INFO streaming.StreamJob:  map 95%  reduce 31%
-17/12/16 22:12:20 INFO streaming.StreamJob:  map 95%  reduce 32%
-17/12/16 22:12:52 INFO streaming.StreamJob:  map 96%  reduce 32%
-17/12/16 22:13:38 INFO streaming.StreamJob:  map 97%  reduce 32%
-17/12/16 22:14:12 INFO streaming.StreamJob:  map 98%  reduce 32%
-17/12/16 22:14:15 INFO streaming.StreamJob:  map 98%  reduce 33%
+...
 17/12/16 22:14:49 INFO streaming.StreamJob:  map 99%  reduce 33%
 17/12/16 22:15:23 INFO streaming.StreamJob:  map 100%  reduce 33%
 17/12/16 22:15:44 INFO streaming.StreamJob:  map 100%  reduce 74%
@@ -229,3 +107,30 @@ Example of `tf_df_output.txt`:
 1       2       other
 ```
 
+After generating `tf_df_output.txt` file with some other helper files, run the `network_builder.py` 
+script to produce `result.csv` file. Example of result is generated from
+`Ink helps drive democrasy in Asia` article in `result.csv` file:
+
+```text
+;use;voter;thumb;readers;type;uv;serbia;elections;light;sprayed;ultraviolet;ink;republic;kyrgyz;ballot
+use;0;0;0;0;0;0;0;2;0;0;0;12;0;1;0
+voter;0;0;0;0;0;2;0;1;1;0;0;5;0;0;0
+thumb;0;0;0;0;0;0;0;0;1;0;0;3;0;0;0
+readers;0;0;0;0;0;0;0;1;0;0;0;3;0;0;0
+type;0;0;0;0;0;0;0;0;0;0;0;2;0;0;0
+uv;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+serbia;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0
+elections;2;1;0;1;0;0;1;0;0;0;0;21;0;2;0
+light;0;1;1;0;0;0;0;0;0;0;0;2;0;0;0
+sprayed;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0
+ultraviolet;0;0;0;0;0;0;0;0;0;0;0;4;0;0;0
+ink;12;5;3;3;2;0;0;21;2;1;4;0;2;4;2
+republic;0;0;0;0;0;0;0;0;0;0;0;2;0;0;0
+kyrgyz;1;0;0;0;0;0;0;2;0;0;0;4;0;0;0
+ballot;0;0;0;0;0;0;0;0;0;0;0;2;0;0;0
+```
+
+License
+-------
+
+MIT © [Nikita Savchenko](https://nikita.tk)
