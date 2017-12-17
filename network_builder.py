@@ -13,8 +13,8 @@ print('Gathering a graph from computed TF-IDF values...')
 ranks = {}
 hvg = {}
 max_rank = 0.0001
-horizon = 20              # do not search in HVG behind the horizon
-rank_threshold = 0.2      # filter less relevant words, ranked in relative range 0..1
+horizon = 100             # do not search in HVG behind the horizon
+rank_threshold = 0.09     # filter less relevant words, ranked in relative range 0..1
 commons = set()
 line = []
 text = []
@@ -24,7 +24,7 @@ with open('tf_df_output.txt') as f:
 with open('files_count.txt') as f:
 	documents = int(f.read())
 with open('file_name.txt') as f:
-	with open('texts/' + f.read().strip()) as f2:
+	with open('dataset/news/' + f.read().strip()) as f2:
 		text = utils.get_normalized_words(f2.read())
 tf_df_word = [x.strip().split() for x in content]
 

@@ -1,12 +1,12 @@
 if [ -z ${1+x} ]
 then
-	file="animals/dogs.txt"
+	file="tech/ink-helps-drive-democracy-in-asia.txt"
 else
 	file="$1"
 fi
 
-if [ ! -f "texts/$file" ]; then
-	echo "File texts/$file does not exists!"
+if [ ! -f "dataset/news/$file" ]; then
+	echo "File dataset/news/$file does not exists!"
 	exit 1
 fi
 
@@ -22,7 +22,7 @@ printf "Putting files to HDFS...\n"
 hadoop fs -mkdir /temp
 hadoop fs -mkdir /temp/input
 # /temp/output must not exists beforehand
-hadoop fs -put texts/* /temp/input
+hadoop fs -put dataset/news/* /temp/input
 
 printf "Counting files...\n"
 hadoop fs -ls -R /temp/input | grep -E '^-' | wc -l > files_count.txt

@@ -1,0 +1,3 @@
+[submodule "dataset"]
+	path = dataset
+	url = git@github.com:ZitRos/news-articles-dataset.git
